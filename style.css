@@ -23,8 +23,6 @@ body {
     color: var(--light);
     overflow-x: hidden;
 }
-
-/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 0;
@@ -105,6 +103,7 @@ body {
     border-radius: 3px;
     transition: all 0.3s ease;
 }
+
 
 /* ===== HERO SECTION ===== */
 #beranda {
@@ -625,4 +624,21 @@ section {
 ::selection {
     background: var(--primary);
     color: var(--dark);
+}
+/* FIX UNTUK AOS */
+body, html {
+    overflow-x: hidden; /* Mencegah horizontal scroll akibat animasi */
+}
+
+[data-aos] {
+    pointer-events: none; /* Mencegah elemen menghalangi klik sebelum animasi selesai */
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto; /* Kembalikan fungsi klik setelah muncul */
+}
+
+/* Pastikan section tidak kaku saat AOS merubah tinggi elemen */
+section {
+    overflow: hidden;
 }
