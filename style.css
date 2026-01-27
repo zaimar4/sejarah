@@ -115,7 +115,11 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    background-image: url("Alun2 garoet indonesia.jfif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     overflow: hidden;
 }
 
