@@ -23,6 +23,26 @@ body {
     color: var(--light);
     overflow-x: hidden;
 }
+
+/* ===== FIX AOS BUG ===== */
+[data-aos] {
+    pointer-events: auto !important;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto !important;
+}
+
+/* Prevent AOS from changing display properties */
+.section-title[data-aos],
+.hero-content[data-aos],
+.content-box[data-aos],
+.tujuan-grid[data-aos],
+.inti-grid[data-aos] {
+    opacity: 1;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 0;
@@ -104,7 +124,6 @@ body {
     transition: all 0.3s ease;
 }
 
-
 /* ===== HERO SECTION ===== */
 #beranda {
     min-height: 100vh;
@@ -114,7 +133,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    background-image: url("Alun2 garoet indonesia.jfif");
+    background-image: url("asset/Alun2 garoet indonesia.jfif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -149,7 +168,6 @@ body {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 30px;
-    animation: fadeInUp 1s ease-out;
 }
 
 #beranda h1 span {
@@ -165,7 +183,6 @@ body {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 40px;
-    animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
 .scroll-indicator {
@@ -179,17 +196,6 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50% { transform: translateX(-50%) translateY(-15px); }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* ===== SECTIONS ===== */
@@ -207,6 +213,7 @@ section {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+    width: auto;
 }
 
 .section-title::after {
@@ -299,7 +306,7 @@ section {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 51, 51, 0.1), transparent);
     transition: left 0.5s ease;
-    pointer-events: none; /* Fix: Supaya tidak menghalangi klik */
+    pointer-events: none;
 }
 
 .tujuan-card:hover::before {
@@ -365,7 +372,7 @@ section {
     background: radial-gradient(circle, rgba(125, 211, 252, 0.1) 0%, transparent 70%);
     transition: all 0.6s ease;
     opacity: 0;
-    pointer-events: none; /* FIX UTAMA: Agar elemen hiasan ini tidak menutupi link gambar */
+    pointer-events: none;
 }
 
 .location-card:hover::after {
@@ -393,7 +400,7 @@ section {
     display: block;
     margin-bottom: 20px;
     position: relative;
-    z-index: 5; /* Memastikan link berada di atas elemen lain dalam kartu */
+    z-index: 5;
 }
 
 .location-card img {
@@ -459,6 +466,7 @@ section {
     scroll-snap-align: start;
     transition: all 0.4s ease;
     position: relative;
+    flex-shrink: 0;
 }
 
 .timeline-item::before {
@@ -536,6 +544,7 @@ section {
     font-size: 15px;
     font-style: italic;
     color: var(--secondary);
+    display: inline-block;
 }
 
 /* ===== RESPONSIVE ===== */
